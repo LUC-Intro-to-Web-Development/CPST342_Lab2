@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MPLS Dogboarding </title>
+        <style>
+            body{
+                font-family: 'Montserrat', sans-serif;
+                margin: 0;
+                line-height: 1.5em;
+            }
+
+            #container{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 105px auto  15%;
+                
+                height: 100vh;
+                
+            }
+
+            header{
+                grid-column-start: 1;
+                grid-column-end: 4;
+                grid-row-start: 1;
+                grid-row-end: 2;
+               
+            }
+            main{
+                grid-column-start: 1;
+                grid-column-end: 4;
+                grid-row-start: 2;
+                grid-row-end: 3;
+                
+            }
+            footer{
+                grid-column-start: 1;
+                grid-column-end: 4;
+                grid-row-start: 3;
+                grid-row-end: -1;
+                padding-top: 40px;
+             
+            }
+
+            header img{
+                width: 20%;
+                margin: auto;
+                display: block;
+                max-width: 280px;
+                min-width: 250px;
+            }
+
+            #flexcontainer{
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                background-image: url(img/dog_bg.jpeg);
+                background-size: 100%;
+                background-position: center;
+            }
+            #flexcontainer aside{
+                flex: 1 0 325px;
+                height: 295px;
+                margin: 4% 2%;
+                padding: 10px;
+                background-color: #ffffffcf;
+                border-radius: 10px;
+                transition: all .2s ease-in-out;
+            }
+
+            .location{
+                color: white;
+                background-color: black;
+                border: none;
+                width: 44%;
+                height: 45px;
+                outline: none;
+                transition: all .5s ease-in;
+                margin: 5px;
+                font-weight: 900;
+            }
+            .location:hover{
+                background-color: white;
+                color: black;
+                width: 47%;
+                height: 47px;
+                
+            }
+            #discount{
+                display: none;
+            }
+            #hours{
+                display: none;
+            }
+     
+            
+            #flexcontainer aside:hover{
+                background-color: #ff4500bd;
+                color: white;
+            }
+            #copyright{
+                width: 275px;
+                margin:auto;
+            }
+
+            
+
+            #location_button {
+                display: none;
+                flex: 1 0 350px;
+                font-size: 2.4em;
+                text-align: center;
+                color: white;
+                border: none;
+                margin: 4% 2%;
+                height: 120px;
+                border-radius: 10px;
+                background-color: #000000dc;
+            }
+
+            /**Media Queries **/
+            /* smaller than 1024 pixels */
+            @media screen and (max-width: 1024px) {
+                #flexcontainer aside{ 
+                    height: auto;
+                }
+
+                #flexcontainer{
+                    background-size: auto;
+                }
+                
+            }
+            /* smaller than 768 pixels */
+            @media screen and (max-width: 768px) {
+               #flexcontainer{
+                    background-image: url(img/dog_bg_768.jpg);
+                    background-position: center;
+                    background-size: cover;
+                } 
+                #flexcontainer aside{
+                    background-color: #000000cf;
+                    color: white;
+                }
+                .location{
+                    background-color: white;
+                    color: black;
+                }
+                .location:hover{
+                    background-color:black;
+                    color:white;
+                }
+                #location_button{
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <img src="img/mpls_dog_logo.png" alt="Mpls dog logo">
+            </header>
+            <main id="flexcontainer">
+                <aside>
+                    <h2>About Us</h2>
+                    <p>Quality dog care service - The luxury hotel for dogs!</p>
+                    <p>Serving the MPLS area for well over 10 years!</p>
+                    <button class="location">Contact Us</button>
+                    <h3>Meet Our Team</h3>
+                    <p>Our dedicated team is here to care for your dog and and provide the best care. Click below to find our more about our team.</p>
+                </aside>
+                <aside>
+                    <h2>Base Price</h2>
+                    <p>*Price fluctuates up or down from base price based on dogs weight</p>
+                    <h3>Weekly Boarding</h3>
+                    <p>$425 - 7 days [24 hours from drop-off time] </p>
+                    <h3>Daily Rate: </h3>
+                    <p>$75 - 1 day [24 hours from drop-off time]</p>
+                    
+                </aside>
+                <aside>
+                    <h2>Hours of Operation</h2>
+                    <h3>Two Locations <span style="font-style: italic; font-size: .6em;">(Click for location hours)</span></h3>
+                 
+                    <button class="location" onclick="northLocation()">North <br> <span>228  Main Ave.</span></button>
+                    <button class="location" onclick="southLocation()">South <br> <span>538 Franklin Ave</span></button>
+                    <ul id="hours">
+                        <li>Monday -Friday: 7am - 6pm</li>
+                        <li>Saturday and Sunday: 1pm - 9pm</li>
+
+                    </ul>
+                    <h4 id="discount">15% Discount - Use code: mplsnorth</h4>
+
+                </aside>
+                <button id="location_button">Click Here For Map</button>
+            </main>
+            <footer>
+                <div id="copyright">	&#169; 2019 - 2025 MPLS Dogboarding</div>
+            </footer>
+        </div>
+        <script>
+            function northLocation(){
+
+                var northHours = "Monday – Friday 6am - 8pm";
+                document.getElementById('discount').style.display = 'block';
+                document.getElementById('discount').style.textShadow = '1px 1px 2px #333';
+
+                document.getElementById('hours').style.display = 'block';
+                document.querySelector('#hours li:first-child').innerHTML = northHours;
+
+            }
+
+            function southLocation(){
+                var southHours = "Monday – Friday 9am - 10pm";
+                document.getElementById('discount').style.display = 'none';
+                
+
+                document.getElementById('hours').style.display = 'block';
+                document.querySelector('#hours li:first-child').innerHTML = southHours;
+            }
+        
+        </script>
+    </body>
+</html>
