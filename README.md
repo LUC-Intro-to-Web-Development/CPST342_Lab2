@@ -59,7 +59,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 6. Run command **[node index.js]** and view application in your browser by entering URL ```localhost:3000```  
 7.  After viewing application in browser kill the server by entering **Windows-users: [Control + C] - Mac-users: [CMND + C]** in the terminal.
 	
-### Step 3 - Adding route for contact.html page **[CHALLENGE STEP]**`#f03c15`
+### Step 3 - Adding route for contact.html page **[CHALLENGE STEP]**
 1.  Underneath your home route, add a new route in the index.js file that will allow the end-user to display the contact.html page when they navigate to ``` localhost:3000/contact```
 2.  Test to see if you properly implemented the route by starting server and navigating to the contact page.
    
@@ -109,7 +109,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 	Insightful moment  -> If the form attribute method value was **'POST'**, then the statement to retrieve information form client would use **req.body**.  
 
 
-3.  Create a new page in your views folder and name it **[confirmation.html]**. Copy the contents of the ```contact.html``` file and remove the code listed below from the confirmation.html page and add a message that states **'<u>Taylor</u> someone will be contact via <u>phone</u> within 24 hours.'** where <u>Taylor</u> and <u>phone</u> is data the user entered in the form for first name and preferred method of contact sent from the submit route.  *Refer to Step 5 #3 and #4 for context. **[CHALLENGE]** `#f03c15`
+3.  Create a new page in your views folder and name it **[confirmation.html]**. Copy the contents of the ```contact.html``` file and remove the code listed below from the confirmation.html page and add a message in its place that states **'<u>Taylor</u> someone will be contact via <u>phone</u> within 24 hours.'** where <u>Taylor</u> and <u>phone</u> is data the user entered in the form for first name and preferred method of contact sent from the submit route.    *Refer to Step 5 #3 and #4 for context. **[CHALLENGE]** 
 	```html
              <h2>Touch basis with us!</h2>
                     <form action="auth.html" method="GET">
