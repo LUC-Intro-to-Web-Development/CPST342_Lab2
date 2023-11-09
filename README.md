@@ -1,9 +1,10 @@
 #  MPLS Dog Boarding Nodejs Express App - Routing + Request/Response parameters (Lab 2)
-Listed below is the image of MPLS Dog Boarding website.  You can view the website in your browser by navigating to this link [](). You are going to create the backend routing and logic to be able to receive information from a contact us form.  This lab focuses on using Nodejs as the back-end server language and implementing core modules (File System core module), third-party modules (Express Framework), user-defined modules (User Object).
+For this lab, you are going to create the backend routing and logic to be able to receive information from a contact us form.  This lab focuses on using Nodejs as the back-end server-side language and implementing third-party modules Express.js and handlebars.js).
 
 By the end of this lab, you should able to:
-  -1 Create a route using the Express.js framework -2 Implement logic that allows you to accept data via a 'GET' request
-  -3 Implement logic that responds back to the client and sends HTML and data.
+1. Create a route using the Express.js framework
+2. Code logic that will allow you to respond to a 'GET' request from the server.
+3. Implement logic that sends data to the client to display within HTML page.
 
 ## Requirements
 
@@ -12,12 +13,11 @@ By the end of this lab, you should able to:
 2.  Make sure git is initialized and check the staus of your files.  Make sure your local branch name aligns with your remote branch name.  **[git init]** **[git status]**
 3.  Create a .gitignore file and add **[node_modules]** to the file.
 4.  Install NPM and complete the configuration questions to create the package.json file  **[npm init]** to the file.
-5.  
 
 
 ### Step 2 - Installing and Configuring Express middleware
 1.  Install the express.js from NPM.  command **[npm install express]**
-	1.  This command add express express.js as a dependency to your package.json file.  Open the file to confirm that express.js has been added as a dependency.  You should see express and it's version under dependencies.
+	1.  The command adds express express.js as a dependency to your package.json file.  Open the file to confirm that express.js has been added as a dependency.  You should see express and it's version under dependencies.
     
 2. Create an entry file called **index.js** 
 	1.  Open the **index.js** file and make the express dependency available to your index.js file by adding the statements below to the top of your index.js file. The last statement will run your application on port 3000.
@@ -27,7 +27,7 @@ By the end of this lab, you should able to:
 	     const port = 3000
 	
 	  ```
-3.  Add the middleware code below to your index.js file and review the comments above each statement that provides explanation for why the statement is needed
+3.  Add the middleware code below to your index.js file and review the comments above each statement to gain a better understanding of the code.
 ```javascript
 /**To serve static files such as images, CSS files, and JavaScript files, create a folders
 * and include the below statement.  The below statement assumes that I have a folder named assets in my project directory
@@ -46,40 +46,25 @@ app.use(express.urlencoded({ extended: true }));
 // Route to  home
 app.get('/', function (req, res) {
 	
-		// Use res.sendFile to send an HTML file directly
-        res.sendFile(__dirname + '/home.html');
+    // Use res.sendFile to send an HTML file directly
+    res.sendFile(__dirname + '/home.html');
 
 })
 
 ```
-5. Add the statement below that allows your application use port 3000
+5. Add the statement below to the end of your file.  This statement that allows your application use port 3000 and outputs a message to the console indicating that your application is listening on port 3000.
 ```javascript
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 ```
-6. Run command **[node index.js]** and view application in browser by navigating to localhost:3000.  
-7.  After viewing application in browser stop application by running **[Control + C]**
+6. Run command **[node index.js]** and view application in your browser by entering URL ```localhost:3000```  
+7.  After viewing application in browser kill the server by entering **Windows-users: [Control + C] - Mac-users: [CMND + C]** in the terminal.
 	
 ### Step 3 - Adding route for contact.html page **[CHALLENGE STEP]**
 1.  Underneath your home route, add a new route in the index.js file that will allow the end-user to display the contact.html page when they navigate to ``` localhost:3000/contact```
-2.  Test to see if you properly implemented the route by starting server and navigating to the contact page. 
-### Step 4 - Implement Business (Model) Logic
-1.  **Business (Model) Logic** - What are attributes and behavior that each user need to have?  
-	1. Each user will have a first name, last name, email and password.
-	2. Implement the logic below into user.js file that is in the model folder:
-		```javascript
-		var user = {
-
-			firstName: "",
-			lastName: "",
-			email: "",
-			password: ""
-
-		}
-
-		exports.user;
-		```
+2.  Test to see if you properly implemented the route by starting server and navigating to the contact page.
+   
 		
-### Step 5 - Adding Templating library Handlebars.js to application
+### Step 4 - Adding Templating library Handlebars.js to application
 1.  Install NPM package hbs as a dependency for this application by running this command -> **[npm install hbs]**
 
 2.  Add the code below above underneath the ```app.use(express.static('assets'))``` statement
@@ -102,10 +87,10 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 	```html
 	   <title>{{title}} </title>
 	```
-	3. Start your server and test your application to see if your application renders the contact and home pages.  Check the browser tab to see if text displays "MPLS #1 Dog Boarding School". Stop server and proceed to Step 6.
+	3. Start your server and test your application to see if your application renders the contact and home pages.  Check the browser tab to see if text displays "MPLS #1 Dog Boarding School". Stop server and proceed to Step 5.
 
 
-### Step 6 - Passing Data from client to Server + Using request and response parameters.
+### Step 5 - Passing Data from client to Server + Using request and response parameters.
 1.  Open the **[contact.html]** page and locate the action attribute in the form and change the value to **"/submit"**. You html code should look similar to what is below.  and add the square brackets listed below.  **Be careful not to confuse user.js with users.json**
 	```html
 	   <form action="/submit" method="GET">
@@ -148,15 +133,15 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
                     </form>
 	```
 
-4.  Start Server and submit the form on the contact.html page and ensure that the form submits and renders the confirmation page along with name and preferred contact method.  Kill server and proceed to Step 7.
+4.  Start Server and submit the form on the contact.html page and ensure that the form submits and renders the confirmation page along with name and preferred contact method.  Kill server and proceed to Step 6.
 	
-### Step 7 - Adding to confirmation.html file + Adding JS to contact form button **[ 3 Points of Extra Credit]**
+### Step 6 - Adding to confirmation.html file + Adding JS to contact form button **[ 3 Points of Extra Credit]**
 1.  In addition to sending data back to the confirmation.html file, allow the values for last name, email, phone and comment to display within the confirmation message. (2 pts)
 2.  Locate the button within the about us sectoin on the ```home.html``` page and add JS that would allow the end-user to navigate to the contact page once button is clicked. (1pt)
 3.  Start server and test to make sure functionality works.  Kill Server by running command **[CTRL + C]** 
 
 
-### STEP 8 - Submission
+### STEP 7 - Submission
 1.  Comment your name to the index.js file and review your application prior to pushing your work to the repository
 2.  Make sure your main branch is clean and push up your final changes.
 3.  In Sakai, submit the URL to your repository.  If you completed the extra credit, leave a message notifying me of your attempt.
