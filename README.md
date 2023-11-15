@@ -57,7 +57,7 @@ app.get('/', function (req, res) {
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 ```
 6. Run command **[node index.js]** and view application in your browser by entering URL ```localhost:3000```  
-7.  After viewing application in browser kill the server by entering **Windows-users: [Control + C] - Mac-users: [CMND + C]** in the terminal.
+7.  After viewing application in browser kill the server by entering **Windows-users: [Control + C] ** in the terminal.
 	
 ### Step 3 - Adding route for contact.html page **[CHALLENGE STEP]**
 1.  Underneath your home route, add a new route in the index.js file that will allow the end-user to display the contact.html page when they navigate to ``` localhost:3000/contact```
