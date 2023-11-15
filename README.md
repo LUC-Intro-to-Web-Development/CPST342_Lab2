@@ -59,12 +59,8 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 6. Run command **[node index.js]** and view application in your browser by entering URL ```localhost:3000```  
 7.  After viewing application in browser kill the server by entering **Windows-users: [Control + C] ** in the terminal.
 	
-### Step 3 - Adding route for contact.html page **[CHALLENGE STEP]**
-1.  Underneath your home route, add a new route in the index.js file that will allow the end-user to display the contact.html page when they navigate to ``` localhost:3000/contact```
-2.  Test to see if you properly implemented the route by starting server and navigating to the contact page.
-   
 		
-### Step 4 - Adding Templating library Handlebars.js to application
+### Step 3 - Adding Templating library Handlebars.js to application
 1.  Install NPM package hbs as a dependency for this application by running this command -> **[npm install hbs]**
 
 2.  Add the code below above underneath the ```app.use(express.static('assets'))``` statement
@@ -87,9 +83,12 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 	```html
 	   <title>{{title}} </title>
 	```
-	3. Start your server and test your application to see if your application renders the contact and home pages.  Check the browser tab to see if text displays "MPLS #1 Dog Boarding School". Stop server and proceed to Step 5.
+	3. Start your server and test your application to see if your application renders the contact and home pages.  Check the browser tab to see if text displays "MPLS #1 Dog Boarding School". Stop server and proceed to Step 4.
 
-
+### Step 4 - Adding route for contact.html page **[CHALLENGE STEP]**
+1.  Underneath your home route, add a new route in the index.js file that will allow the end-user to display the contact.html page when they navigate to ``` localhost:3000/contact```
+2.  Test to see if you properly implemented the route by starting server and navigating to the contact page.
+   
 ### Step 5 - Passing Data from client to Server + Using request and response parameters.
 1.  Open the **[contact.html]** page and locate the action attribute in the form and change the value to **"/submit"**. You html code should look similar to what is below.  and add the square brackets listed below.  **Be careful not to confuse user.js with users.json**
 	```html
