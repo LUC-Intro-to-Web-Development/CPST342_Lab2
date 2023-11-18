@@ -90,7 +90,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 2.  Test to see if you properly implemented the route by starting server and navigating to the contact page.
    
 ### Step 5 - Passing Data from client to Server + Using request and response parameters.
-1.  Open the **[contact.html]** page and locate the action attribute in the form and change the value to **"/submit"**. You html code should look similar to what is below.  and add the square brackets listed below.  **Be careful not to confuse user.js with users.json**
+1.  Open the **[contact.html]** page and locate the action attribute in the form and change the value to **"/submit"**. You html code should look similar to what is below.  and add the square brackets listed below.  
 	```html
 	   <form action="/submit" method="GET">
 	```
